@@ -132,12 +132,11 @@
   \leavevmode%
   \@tempdimb=6.4375ex%
     %\multiply\@tempdimb by\beamer@sectionmax%
-  \pgfdeclareimage[height=.95\@tempdimb]{logo}{cgcl_logo3.png}%
   \pgfdeclareimage[height=1.\@tempdimb]{title_logo}{cgcl_title2.png}%
   \logo{\pgfuseimage{logo}}%
   \ifdim\@tempdimb>0pt%
     \advance\@tempdimb by 1.125ex%
-    \begin{beamercolorbox}[wd=.8\paperwidth,ht=\@tempdimb]{section in head/foot}%{section in head/foot} % {section in head/foot}是用来设置颜色的
+    \begin{beamercolorbox}[wd=.865\paperwidth,ht=\@tempdimb]{section in head/foot}%{section in head/foot} % {section in head/foot}是用来设置颜色的
       \vbox to\@tempdimb{\vfil\insertsectionnavigationhorizontal{.5\textwidth}{\hskip0pt plus1filll}{}\vfil}%
     \end{beamercolorbox}%
     %% \begin{beamercolorbox}[wd=.4\paperwidth,ht=\@tempdimb,center]{subsection in head/foot}%
@@ -146,9 +145,9 @@
     \begin{beamercolorbox}[wd=.135\paperwidth,ht=\@tempdimb,center]{subsection in head/foot}%{DitfRed}%
       \vbox to\@tempdimb{\vfil\pgfuseimage{title_logo}\vfil}%
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.065\paperwidth,ht=\@tempdimb,center]{subsection in head/foot}%{DitfRed}%
-      \vbox to\@tempdimb{\vfil\insertlogo\vfil\vfil}%
-    \end{beamercolorbox}%
+    %\begin{beamercolorbox}[wd=.065\paperwidth,ht=\@tempdimb,center]{subsection in head/foot}%{DitfRed}%
+      %\vbox to\@tempdimb{\vfil\insertlogo\vfil\vfil}%
+    %\end{beamercolorbox}%
   \fi%
 }
 
