@@ -1,0 +1,311 @@
+\documentclass[10pt,aspectratio=169,mathserif]{beamer}		
+%设置为 Beamer 文档类型，设置字体为 10pt，长宽比为16:9，数学字体为 serif 风格
+
+%%%%-----导入宏包-----%%%%
+\usepackage{cgcl}			%导入 CCNU 模板宏包
+% \usepackage{ctex}			 %导入 ctex 宏包，添加中文支持
+\usepackage{amsmath,amsfonts,amssymb,bm}   %导入数学公式所需宏包
+\usepackage{color}			 %字体颜色支持
+\usepackage{graphicx,hyperref,url,mathtools}	
+%%%%%%%%%%%%%%%%%%	
+
+
+\beamertemplateballitem		%设置 Beamer 主题
+
+%%%%------------------------%%%%%
+\catcode`\。=\active         %或者=13
+\newcommand{。}{．}				
+%将正文中的“。”号转换为“.”。
+%%%%%%%%%%%%%%%%%%%%%
+
+%%%%----首页信息设置----%%%%
+\title{Transformation of  Inertia Tensor}
+\subtitle{}			
+%%%%----标题设置
+
+
+\author[Xiping Hu]{
+  Xiping Hu \\\medskip
+  {\small \url{XipingHu@hust.edu.cn}} \\
+  {\small \url{https://github.com/XipingHu}}}
+%%%%----个人信息设置
+  
+\institute[IOPP]{
+	School of Physics\\
+  Huazhong University of Scienec and Technology}
+%%%%----机构信息
+
+\date[Mar. 21 2018]{\today
+%  2016年12月01日
+}
+%%%%----日期信息
+  
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}				%生成标题页
+
+\section{Outline}
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+\end{frame}				%生成提纲页
+
+
+\section{Introduction to the Inertia Tensor}
+\begin{frame}
+  \frametitle{Introduction to the Inertia Tensor}
+	  \begin{block}{The form of Inertia Tensor}
+	    We write the Inertia Tensor as:
+	    \begin{equation*}
+	    \begin{aligned}
+		    I&=
+		    \begin{bmatrix}
+		    \sum\limits_\alpha m_\alpha \left( x_{\alpha , 2}^2 + x_{\alpha , 3}^2 \right)  & -\sum\limits_\alpha m_\alpha x_{\alpha , 1}x_{\alpha , 2} & \sum\limits_\alpha m_\alpha x_{\alpha , 1}x_{\alpha , 3} \\
+		    -\sum\limits_\alpha m_\alpha x_{\alpha , 2}x_{\alpha , 3} & \sum\limits_\alpha m_\alpha \left( x_{\alpha , 1}^2 + x_{\alpha , 3}^2 \right) & \sum\limits_\alpha m_\alpha x_{\alpha , 2}x_{\alpha , 3} \\
+		    -\sum\limits_\alpha m_\alpha x_{\alpha , 3}x_{\alpha , 1} & -\sum\limits_\alpha m_\alpha x_{\alpha , 3}x_{\alpha , 2} & \sum\limits_\alpha m_\alpha \left( x_{\alpha , 1}^2 + x_{\alpha , 2}^2 \right) \\
+		    \end{bmatrix}\\
+		    &\coloneqq\begin{bmatrix}
+		    I_{11} & I_{12} & I_{13} \\
+		    I_{21} & I_{22} & I_{23} \\
+		    I_{31} & I_{32} & I_{33}
+		    \end{bmatrix}
+	    \end{aligned}
+	    \end{equation*}
+	    Which is symmetric since
+	    \begin{equation*}
+	    I_{ij} = I_{ji}
+	    \end{equation*}
+	  \end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Introduction to the Inertia Tensor}
+	\begin{block}{The Rotational Kinetic Energy}
+		\begin{equation*}
+		T_{rot} = \sum\limits_{i,j} \frac{1}{2} \omega_i I_{ij} \omega_j = \frac{1}{2} \bm{\omega}' \bm{I} \bm{\omega}
+	\end{equation*}
+	To make life much easier, we may find an axis in which the cross terms vanish.
+	\end{block}
+\end{frame}
+
+\section{Diagonalization of symmetric matrix}
+\begin{frame}
+	\frametitle{Diagonalization of symmetric matrix}
+	\begin{block}{Some facts on Symmetric Matrices}
+		\textbf{Theorem:}\hspace{1pt} Any symmetric matrix
+		\begin{enumerate}
+			\item has only real eigenvalues
+			\item is always diagonalizable
+			\item has orthogonal eigenvectors
+		\end{enumerate}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Diagonalization of symmetric matrix}
+	\begin{block}{Find eigenvalue and eigenvectors}
+		\textbf{Example (p133):}\hspace{3pt}
+		\begin{equation*}
+		\bm{I}=
+		\begin{bmatrix}
+		\vspace{5pt}
+		\frac{2}{3} \beta & -\frac{1}{4} \beta & -\frac{1}{4} \beta \\
+		\vspace{5pt}
+		-\frac{1}{4} \beta & \frac{2}{3} \beta & -\frac{1}{4} \beta \\
+		-\frac{1}{4} \beta & -\frac{1}{4} \beta & \frac{2}{3} \beta
+		\end{bmatrix}
+		\end{equation*}
+		Our aim: Find $\bm{I^*}$, which is diagonal and similar with $\bm{I}$\\
+		\vspace{3pt}
+		Solve
+		\begin{equation*}
+		\left|  \bm{I}-\lambda \bm{E} = 0\right| 
+		\end{equation*}
+		Whereas $\bm{E}$ represents the Elementary Matrix
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Diagonalization of symmetric matrix}
+	\begin{block}{}
+		\begin{equation}
+		\label{eq:1}
+		\left| 
+		\begin{matrix}
+		\vspace{5pt}
+		\frac{2}{3} \beta -\lambda & -\frac{1}{4} \beta & -\frac{1}{4} \beta \\
+		\vspace{5pt}
+		-\frac{1}{4} \beta & \frac{2}{3} \beta -\lambda & -\frac{1}{4} \beta \\
+		-\frac{1}{4} \beta & -\frac{1}{4} \beta & \frac{2}{3} \beta - \lambda
+		\end{matrix}
+		\right| =0
+		\end{equation}
+		Equation \ref{eq:1} can be simplified as:
+		\begin{equation*}
+		\left( \frac{11}{12} \beta - \lambda \right) \left( \frac{11}{12} \beta - \lambda \right) \left( \frac{1}{6} \beta - \lambda \right) 
+		\end{equation*}
+		The eigenvalues of $\bm{I}$ are
+		\begin{equation*}
+			\lambda_1 = \lambda_2 = \frac{11}{12} \beta
+		\end{equation*}
+		\begin{equation*}
+			 \lambda_3 = \frac{1}{6} \beta 
+		\end{equation*}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Diagonalization of symmetric matrix}
+	\begin{block}{}
+		To find eigenvectors, insert $\lambda_i$ into $\left(  \bm{I}-\lambda_i \bm{E}\right) \bm{\omega}=0$\\
+		\vspace{10pt}
+		for $\lambda_1=\lambda_2 =\frac{11}{12}\beta$
+		\begin{equation*}
+		\left[
+		\begin{matrix}
+		\vspace{5pt}
+		\frac{2}{3} \beta -\frac{11}{12}\beta & -\frac{1}{4} \beta & -\frac{1}{4} \beta \\
+		\vspace{5pt}
+		-\frac{1}{4} \beta & \frac{2}{3} \beta -\frac{11}{12}\beta & -\frac{1}{4} \beta \\
+		-\frac{1}{4} \beta & -\frac{1}{4} \beta & \frac{2}{3} \beta - \frac{11}{12}\beta
+		\end{matrix}
+		\right]\left[ 
+		\begin{matrix}
+		\omega_1\\
+		\omega_2\\
+		\omega_3
+		\end{matrix} \right] =0
+		\end{equation*}
+		
+		\begin{equation*}
+		\begin{aligned}
+		\omega_1+\omega_2+\omega_3&=0\\
+		\omega_1+\omega_2+\omega_3&=0\\
+		\omega_1+\omega_2+\omega_3&=0
+		\end{aligned}
+		\end{equation*}
+		\begin{equation*}
+		\bm{\omega}=\left[ 1,-1,0 \right]' \hspace{5pt} \text{or} \hspace{5pt} \bm{\omega}=\left[ 1,0,-1 \right]'
+		\end{equation*}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Diagonalization of symmetric matrix}
+	\begin{block}{}
+		for $\lambda_3=\frac{1}{6}\beta$
+		\begin{equation*}
+		\left[
+		\begin{matrix}
+		\vspace{5pt}
+		\frac{2}{3} \beta -\frac{1}{6}\beta & -\frac{1}{4} \beta & -\frac{1}{4} \beta \\
+		\vspace{5pt}
+		-\frac{1}{4} \beta & \frac{2}{3} \beta -\frac{1}{6}\beta & -\frac{1}{4} \beta \\
+		-\frac{1}{4} \beta & -\frac{1}{4} \beta & \frac{2}{3} \beta - \frac{1}{6}\beta
+		\end{matrix}
+		\right]\left[ 
+		\begin{matrix}
+		\omega_1\\
+		\omega_2\\
+		\omega_3
+		\end{matrix} \right] =0
+		\end{equation*}
+		
+		\begin{equation*}
+		\begin{aligned}
+		-2\omega_1+\omega_2+\omega_3&=0\\
+		-2\omega_1+\omega_2+\omega_3&=0\\
+		-2\omega_1+\omega_2+\omega_3&=0
+		\end{aligned}
+		\end{equation*}
+		\begin{equation*}
+		\bm{\omega}=\left[ 1,1,1 \right]' 
+		\end{equation*}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Diagonalization of symmetric matrix}
+	\begin{block}{Gram-Schmidt process}
+		\begin{equation*}
+		\mathrm {proj} _{\mathbf {u} }\,(\mathbf {v} )={\langle \mathbf {v} ,\mathbf {u} \rangle  \over \langle \mathbf {u} ,\mathbf {u} \rangle }{\mathbf {u} }
+		\end{equation*}
+		\begin{equation*}
+		\begin{aligned}\mathbf {u} _{1}&=\mathbf {v} _{1},&\mathbf {e} _{1}&={\mathbf {u} _{1} \over \|\mathbf {u} _{1}\|}\\\mathbf {u} _{2}&=\mathbf {v} _{2}-\mathrm {proj} _{\mathbf {u} _{1}}\,(\mathbf {v} _{2}),&\mathbf {e} _{2}&={\mathbf {u} _{2} \over \|\mathbf {u} _{2}\|}\\\mathbf {u} _{3}&=\mathbf {v} _{3}-\mathrm {proj} _{\mathbf {u} _{1}}\,(\mathbf {v} _{3})-\mathrm {proj} _{\mathbf {u} _{2}}\,(\mathbf {v} _{3}),&\mathbf {e} _{3}&={\mathbf {u} _{3} \over \|\mathbf {u} _{3}\|}\\\ \ \vdots &&{}\ \ \vdots \\\mathbf {u} _{k}&=\mathbf {v} _{k}-\sum _{j=1}^{k-1}\mathrm {proj} _{\mathbf {u} _{j}}\,(\mathbf {v} _{k}),&\mathbf {e} _{k}&={\mathbf {u} _{k} \over \|\mathbf {u} _{k}\|}.\end{aligned}
+		\end{equation*}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Diagonalization of symmetric matrix}
+	\begin{block}{}
+		for $\lambda_3=\frac{1}{6}\beta$
+		\begin{equation*}
+		\bm{\omega}=\frac{1}{\sqrt{3}}\left[ 1,1,1 \right]' 
+		\end{equation*}
+		for $\lambda_1=\lambda_2 =\frac{11}{12}\beta$
+		\begin{equation*}
+		\bm{\omega}=\frac{1}{\sqrt{3}}\left[ -\sqrt{\frac{3}{2}},\sqrt{\frac{3}{2}},0\right]' 
+		\end{equation*}
+		or
+		\begin{equation*}
+		\bm{\omega}=\frac{1}{\sqrt{3}}\left[ -\sqrt{\frac{3}{2}},-\sqrt{\frac{1}{2}},\sqrt{2} \right]' 
+		\end{equation*}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Diagonalization of symmetric matrix}
+	\begin{block}{}
+		\begin{equation*}
+		\bm{\Lambda}=\frac{1}{\sqrt{3}}
+		\begin{bmatrix}
+		\vspace{5pt}
+		1 &-\sqrt{\dfrac{3}{2}}&-\sqrt{\dfrac{1}{2}}\\
+		\vspace{5pt}
+		1 &\sqrt{\dfrac{3}{2}}&-\sqrt{\dfrac{1}{2}}\\
+		1 &0&\sqrt{2}
+		\end{bmatrix}
+		\end{equation*}
+
+		\begin{equation*}
+		\bm{I^*}=\bm{\Lambda 'I \Lambda}=
+		\begin{bmatrix}
+		\vspace{5pt}
+		\dfrac{1}{6}\beta &0&0\\
+		\vspace{5pt}
+		0&\dfrac{11}{12}\beta&0\\
+		0 &0&\dfrac{11}{12}\beta
+		\end{bmatrix}
+		\end{equation*}
+	\end{block}
+\end{frame}
+\begin{frame}
+	\frametitle{Diagonalization of symmetric matrix}
+	\begin{block}{}
+		\begin{equation*}
+		\bm{\omega' I \omega}=\bm{\omega' \Lambda \Lambda' I \Lambda \Lambda' \omega}
+		=\bm{\left( \Lambda' \omega\right)'\left(  \Lambda' I \Lambda \right) \left( \Lambda' \omega\right) }
+		=\bm{(\omega^*)' I^*\omega^* }
+		\end{equation*}
+		\begin{equation*}
+		\bm{\omega^*}=\bm{\Lambda' \omega}
+		\end{equation*}
+	\end{block}
+	\begin{block}{Why $\Lambda'$ not $\Lambda$ ?}
+		$\bm{\omega}$ is the base vector of coordinates.
+	\end{block}
+\end{frame}
+
+\section{References}
+\begin{frame}{References}
+	\begin{block}{References}
+		\begin{thebibliography}{99} 
+			\bibitem{} Gao Deng Dai Shu. Weisheng Qiu
+			\bibitem{} Classical MEchanics (Third Edition), Herbert Goldstein
+		\end{thebibliography}
+	\end{block}
+\begin{block}{This Document is placed under GFDL 1.3}
+	\href{https://www.gnu.org/licenses/fdl-1.3.en.html}{GNU Free Document License Version 1.3 by Free Software Foundation}\\
+	See also: https://www.gnu.org/licenses/fdl-1.3.en.html
+\end{block}
+\begin{block}{Source code of this document}
+		https://github.com/XipingHu/Transformation-of-Inertia-Tensor.git
+\end{block}
+\end{frame}
+
+\end{document}
